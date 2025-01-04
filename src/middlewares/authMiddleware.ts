@@ -20,12 +20,15 @@ const authMiddleware = async (
       token,
       process.env.JWT_SECRET as string
     ) as JwtPayload;
+
     const user = await User.findById(payload.id);
     if (!user) {
       return res.status(401).json({ message: "Invalid token or user" });
     }
     req.user = user;
     next();
-  } catch (e) {}
+  } catch (e) {
+    return res.status(401).json({ message: "Access Denied" });
+  }
 };
 export { authMiddleware };

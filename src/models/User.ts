@@ -21,7 +21,7 @@ const UserSchema: Schema = new Schema({
   progress: [
     {
       topicId: { type: Types.ObjectId },
-      completed: { types: Boolean },
+      completed: { type: Boolean },
     },
   ],
 });

@@ -42,8 +42,6 @@ export const createTopic = async (
       message: "Topic created",
     });
   } catch (e) {
-    console.log(e);
-
     return res.status(500).json({
       message: "Server error",
     });
