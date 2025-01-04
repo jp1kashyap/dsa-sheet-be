@@ -12,3 +12,29 @@ export const getTopics = async (req: Request, res: Response): Promise<any> => {
     return res.status(500).json({ message: "Server error" });
   }
 };
+
+export const createTopic = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
+  try {
+    const { chapter, subtopics } = req.body;
+    const topic = await Topic.findOne({ chapter });
+    if (topic) {
+      topic.subtopics.push(...subtopics);
+      await topic.save();
+      return res.status(201).json({
+        message: "Topic updated",
+      });
+    }
+    const newTopic = new Topic({ chapter, subtopics });
+    await newTopic.save();
+    return res.status(201).json({
+      message: "Topic created",
+    });
+  } catch (e) {
+    return res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
