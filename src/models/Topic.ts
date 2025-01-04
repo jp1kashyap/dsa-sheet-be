@@ -10,11 +10,13 @@ export interface ISubtopic {
 
 export interface ITopic extends Document {
   chapter: string;
+  description: string;
   subtopics: Array<ISubtopic>;
 }
 
 const TopicSchema: Schema = new Schema({
   chapter: { type: String, required: true },
+  description: { type: String },
   subtopics: [
     {
       title: { type: String, required: true },

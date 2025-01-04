@@ -4,9 +4,17 @@ import {
   updateProgress,
 } from "../controllers/progress.controller";
 import { authMiddleware } from "../middlewares/authMiddleware";
+import { validateData } from "../middlewares/validationMiddleware";
+import { UpdateProgressValidation } from "../validations/progress.validation";
+
 const router = express.Router();
 
 router.get("/", authMiddleware, getProgress);
-router.post("/", authMiddleware, updateProgress);
+router.post(
+  "/",
+  authMiddleware,
+  validateData(UpdateProgressValidation),
+  updateProgress
+);
 
 export default router;
