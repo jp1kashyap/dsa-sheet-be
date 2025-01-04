@@ -6,6 +6,7 @@ import cors from "cors";
 
 import authRoutes from "./routes/auth.routes";
 import topicRoutes from "./routes/topic.routes";
+import progressRoutes from "./routes/progress.routes";
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/topics", topicRoutes);
+app.use("/api/progress", progressRoutes);
 
 // MongoDB Connection
 mongoose
