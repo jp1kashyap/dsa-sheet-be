@@ -13,7 +13,13 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://dsa-sheet-fe.vercel.app", // Your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    credentials: true, // Include credentials if needed (e.g., cookies, HTTP auth)
+  })
+);
 app.use(bodyParser.json());
 
 // Routes

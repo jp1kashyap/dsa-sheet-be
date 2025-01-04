@@ -14,7 +14,11 @@ const progress_routes_1 = __importDefault(require("./routes/progress.routes"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 // Middleware
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: "https://dsa-sheet-fe.vercel.app", // Your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    credentials: true, // Include credentials if needed (e.g., cookies, HTTP auth)
+}));
 app.use(body_parser_1.default.json());
 // Routes
 app.get("/", (req, res) => {
