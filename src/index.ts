@@ -17,7 +17,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 app.use("/api/auth", authRoutes);
