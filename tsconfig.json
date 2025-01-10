@@ -5,7 +5,22 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "checkJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types"]
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "./coverage",
+    "./dist",
+    "__tests__",
+    "jest.config.js",
+    "node_modules"
+  ],
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true
+  }
 }
