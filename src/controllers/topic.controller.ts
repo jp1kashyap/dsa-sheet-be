@@ -34,7 +34,7 @@ export const createTopic = async (
     }
     const newTopic = new Topic({
       chapter,
-      description: description || "",
+      description: description,
       subtopics,
     });
     await newTopic.save();

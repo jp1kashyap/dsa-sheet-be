@@ -45,7 +45,7 @@ const createTopic = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         }
         const newTopic = new Topic_1.default({
             chapter,
-            description: description || "",
+            description: description,
             subtopics,
         });
         yield newTopic.save();

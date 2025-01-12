@@ -1,5 +1,5 @@
 import express from "express";
-import mongoose from "mongoose";
+import mongoose, { ConnectOptions } from "mongoose";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -31,8 +31,5 @@ app.use("/api/topics", topicRoutes);
 app.use("/api/progress", progressRoutes);
 
 // MongoDB Connection
-mongoose
-  .connect(process.env.MONGO_URI as string, {})
-  .catch((err) => console.error("MongoDB Connection Error:", err));
-
+mongoose.connect(process.env.MONGO_URI as string);
 export default app;

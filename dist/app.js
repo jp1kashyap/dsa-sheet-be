@@ -28,7 +28,5 @@ app.use("/api/auth", auth_routes_1.default);
 app.use("/api/topics", topic_routes_1.default);
 app.use("/api/progress", progress_routes_1.default);
 // MongoDB Connection
-mongoose_1.default
-    .connect(process.env.MONGO_URI, {})
-    .catch((err) => console.error("MongoDB Connection Error:", err));
+mongoose_1.default.connect(process.env.MONGO_URI);
 exports.default = app;
