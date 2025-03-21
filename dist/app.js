@@ -15,7 +15,7 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 // Middleware
 app.use((0, cors_1.default)({
-    origin: "https://dsa-sheet-fe.vercel.app", // Your frontend URL
+    origin: ["https://dsa-sheet-fe.vercel.app", "http://localhost:3000"], // Your frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
     credentials: true, // Include credentials if needed (e.g., cookies, HTTP auth)
 }));
